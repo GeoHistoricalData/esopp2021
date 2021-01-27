@@ -1,10 +1,12 @@
 ---
-title: Situer les populations dans l’espace et le temps
-tags: esopp, geohistoricaldata,ladehis
+title: Situer les populations dans l’espace et dans le temps
+tags: esopp, geohistoricaldata,ladehis, partie 1, historique
 description: Présentation du 10 mars 2021 dans le séminaire du groupe ESOPP
 ---
 
-# Situer les populations dans l’espace et dans le temps
+# Situer les populations dans l’espace et dans le temps - Partie 1
+
+## Historique des travaux sur l'espace au laboratoire
 
 Test de rajout d'une ligne et d'une image
 ![image alt](https://raw.githubusercontent.com/GeoHistoricalData/esopp2021/main/images/bottin%201837.png =500x)
