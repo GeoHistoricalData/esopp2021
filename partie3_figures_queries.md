@@ -49,7 +49,7 @@ WHERE lower(c_voies_approx) IN (
 SELECT section_id, MAX(section_revolutionnaire[1]), COUNT(*)::double precision/175231.0 AS cards_ratio, MAX(geom) as geom 
 FROM cartes_de_surete.security_cards_current_address_import 
 JOIN cartes_de_surete.sections_revolutionnaires as s 
-ON section_id = s.id::text 
+ON section_id = s.section_id::text 
 GROUP BY section_id 
 ORDER BY section_id
 ```
@@ -65,7 +65,7 @@ FROM
   SELECT count(*) as ncards, EXTRACT(YEAR FROM rc_date::date) AS date_emission, section_id, MAX(geom) as geom 
   FROM cartes_de_surete.cartes_de_surete_import AS c
   JOIN cartes_de_surete.sections_revolutionnaires as s 
-  ON section_id = s.id::text 
+  ON section_id = s.id_section::text 
   GROUP BY EXTRACT(YEAR FROM rc_date::date), section_id 
   ORDER BY EXTRACT(YEAR FROM rc_date::date), section_id
 ) AS sub
@@ -81,7 +81,7 @@ FROM (
   SELECT count(*) as ncards, section_id, MAX(geom) as geom
   FROM cartes_de_surete.cartes_de_surete_import AS c
   JOIN cartes_de_surete.sections_revolutionnaires as s
-  ON section_id = s.id::text
+  ON section_id = s.id_section::text
   WHERE rc_date::date < '1792-09-19'::date
   GROUP BY section_id
 ) AS sub
@@ -93,7 +93,7 @@ FROM (
   SELECT count(*) as ncards, section_id, MAX(geom) as geom
   FROM cartes_de_surete.cartes_de_surete_import AS c
   JOIN cartes_de_surete.sections_revolutionnaires as s
-  ON section_id = s.id::text
+  ON section_id = s.id_section::text
   WHERE rc_date::date <= '1792-12-31'::date
   GROUP BY section_id
 ) AS sub
@@ -106,7 +106,7 @@ FROM (
   SELECT count(*) as ncards, section_id, MAX(geom) as geom
   FROM cartes_de_surete.cartes_de_surete_import AS c
   JOIN cartes_de_surete.sections_revolutionnaires as s
-  ON section_id = s.id::text
+  ON section_id = s.id_section::text
   WHERE rc_date::date <= '1793-10-05'::date
   GROUP BY section_id
 ) AS sub
@@ -118,7 +118,7 @@ FROM (
   SELECT count(*) as ncards, section_id, MAX(geom) as geom
   FROM cartes_de_surete.cartes_de_surete_import AS c
   JOIN cartes_de_surete.sections_revolutionnaires as s
-  ON section_id = s.id::text
+  ON section_id = s.id_section::text
   WHERE rc_date::date <= '1794-09-21'::date
   GROUP BY section_id
 ) AS sub
@@ -130,7 +130,7 @@ FROM (
   SELECT count(*) as ncards, section_id, MAX(geom) as geom
   FROM cartes_de_surete.cartes_de_surete_import AS c
   JOIN cartes_de_surete.sections_revolutionnaires as s
-  ON section_id = s.id::text
+  ON section_id = s.id_section::text
   WHERE rc_date::date <= '1802-01-01'::date
   GROUP BY section_id
 ) AS sub
